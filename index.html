@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        width: 600px;
+        height: 320px;
+        text-align: center;
+      }
+      button {
+        height: 60px;
+        width: 550px;
+        outline: none;
+        background:    #8e7cc3;
+        border-radius: 4px;
+        padding:       20px 45px;
+        color:         #ffffff;
+        display:       inline-block;
+        font:          normal bold 16px "Roboto", sans-serif;
+        text-align:    center;
+      }
+      textarea {
+        width: 550px;
+        height: 200px;
+        outline: 1px solid blueviolet;
+      }
+      div {
+        margin:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin-top: 50px;">
+      <button id="extractValues">Click here to extract [Name, Email]</button>
+    </div>
+    <div>
+      <textarea placeholder="Names, Email will appear here, copied to your clipboard" wrap="off" id="result"></textarea>
+    </div>
+    <div>
+      <label id="notification"></label>
+    </div>
+    <script src="extractDom.js"></script>
+  </body>
+</html>

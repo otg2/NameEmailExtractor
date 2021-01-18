@@ -3,8 +3,8 @@
   <head>
     <style>
       body{
-        width: 600px;
-        height: 320px;
+        width: 650px;
+        height: 370px;
         text-align: center;
       }
       button {
@@ -31,7 +31,12 @@
   </head>
   <body>
     <div style="margin-top: 50px;">
-      <button id="extractValues">Click here to extract [Name, Email]</button>
+      <button id="extractValues">Click here to extract [name, email]</button>
+    </div>
+    <div>
+      <input type="radio" name="selection" value="name">Name
+      <input type="radio" name="selection" value="email">Email
+      <input type="radio" name="selection" value="both" value="checked">Both
     </div>
     <div>
       <textarea placeholder="Names, Email will appear here, copied to your clipboard" wrap="off" id="result"></textarea>

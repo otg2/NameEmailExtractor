@@ -1,5 +1,5 @@
 
-var filteredTableAsDom=function(){
+var filteredTableAsDom=function(selectionValue){
     var nameEmailArray = [];
     // Find element and add values to array
     $("table.dataTable tr").each(function() {
@@ -21,19 +21,23 @@ var filteredTableAsDom=function(){
         }
     });
 
-
     // Parse
     var valueString = "";
     nameEmailArray.forEach(nameAndEmail => {
-      var text = nameAndEmail[0] + ", " + nameAndEmail[1] + '\r\n'; 
-      valueString = valueString + text; 
+
+      var nameText = selectionValue == "email" ? "" : nameAndEmail[0];
+      var emailText = selectionValue == "name" ? "" : nameAndEmail[1];
+      var joiner = selectionValue == "both" ? ", " : "";
+
+      var finalText = nameText + joiner + emailText + '\r\n'; 
+      valueString = valueString + finalText; 
     });
     return valueString;
 }
 
 //message listener for background
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)    {
-    var domContent = filteredTableAsDom();
+    var domContent = filteredTableAsDom(request.selection);
     sendResponse({result: domContent});
 });
 
